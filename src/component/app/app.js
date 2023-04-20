@@ -90,6 +90,7 @@ export default class App extends React.Component {
     if (this.state.menu === key) return;
 
     this.setState({
+      inputValue: '',
       moviesData: [{ id: 0 }],
       menu: key,
       loading: true,
