@@ -1,12 +1,12 @@
 import format from 'date-fns/format';
 
 export default class MovieDbService {
-  apiKey = 'b77cc64174937cf24d46534d6ef1a243';
+  apiKey = process.env.REACT_APP_UNSPLASH_KEY;
+
+  url = process.env.REACT_APP_UNSPLASH_URL;
 
   getSessionId = async () => {
-    const guestSessionId = await fetch(
-      `https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${this.apiKey}`
-    );
+    const guestSessionId = await fetch(`${this.url}/authentication/guest_session/new?api_key=${this.apiKey}`);
     guestSessionId.json().then((obj) => localStorage.setItem('guestSessionId', obj.guest_session_id));
   };
 
@@ -17,7 +17,7 @@ export default class MovieDbService {
   };
 
   getGenresList = async () => {
-    const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=en-US`);
+    const response = await fetch(`${this.url}/genre/movie/list?api_key=${this.apiKey}&language=en-US`);
 
     if (!response.ok) {
       throw new Error(`Could not fetch, something went wrong, recieved '${response.status}'.`);
@@ -71,7 +71,7 @@ export default class MovieDbService {
 
   async searchMovie(movie, page = 1) {
     const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=en-US&query=${movie}&page=${page}&include_adult=false`
+      `${this.url}/search/movie?api_key=${this.apiKey}&language=en-US&query=${movie}&page=${page}&include_adult=false`
     );
 
     if (!response.ok) {
@@ -87,9 +87,9 @@ export default class MovieDbService {
     localStorage.setItem(movieId, rate);
 
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/rating?api_key=${
-        this.apiKey
-      }&guest_session_id=${localStorage.getItem('guestSessionId')}`,
+      `${this.url}/movie/${movieId}/rating?api_key=${this.apiKey}&guest_session_id=${localStorage.getItem(
+        'guestSessionId'
+      )}`,
       {
         method: 'POST',
         headers: {
@@ -106,7 +106,7 @@ export default class MovieDbService {
 
   async getRatedMovies(page) {
     const response = await fetch(
-      `https://api.themoviedb.org/3/guest_session/${localStorage.getItem('guestSessionId')}/rated/movies?api_key=${
+      `${this.url}/guest_session/${localStorage.getItem('guestSessionId')}/rated/movies?api_key=${
         this.apiKey
       }&language=en-US&sort_by=created_at.asc&page=${page}`
     );
