@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #E5E5E5;
+  background-image: url('./4e2a0a2d86effddc83b574a467ef5763.jpeg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  margin-top: 5px;
+}
+
+.app {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1010px;
+  height: auto;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}
+
+.network-alert {
+  margin-top: 50%;
+}

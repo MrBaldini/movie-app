@@ -1,0 +1,62 @@
+.film__image {
+  width: 183px;
+  height: 281px;
+}
+
+.film__about {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.about__header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header__title {
+  width: 209px;
+  margin: 0;
+  margin-top: 12px;
+}
+
+.header__rate {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+.about__date {
+  font-size: 12px;
+  line-height: 22px;
+  margin-bottom: 5px;
+}
+
+.about__genre {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.genre {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.about__description {
+  font-size: 12px;
+  line-height: 22px;
+  white-space: wrap;
+  width: 228px;
+}
+
+.description__empty {
+  margin: 0px;
+  margin-top: 15px;
+}
+
+.rate {
+  font-size: medium;
+  margin-top: auto;
+  margin-bottom: 20px;
+}

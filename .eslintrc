@@ -1,0 +1,92 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "ignorePatterns": ["node_modules", "dist", "build"],
+  "extends": [
+    "airbnb/base",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/jsx-runtime"
+  ],
+  "plugins": ["react", "prettier", "import"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest", 
+    "sourceType": "module",
+    "babelOptions": {
+			"presets": ["@babel/preset-react"]
+	 	}
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "linebreak-style": [0, "unix"],
+    "quotes": ["error", "single"],
+    "semi": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 0,
+    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "max-len": ["error", 120, 2, { "ignoreUrls": true }],
+    "no-plusplus": "off",
+    "prefer-destructuring": "off",
+
+		"react/no-find-dom-node": "off", 
+		"react/no-did-mount-set-state": "off",
+		"react/no-unused-prop-types": "off", 
+		"react/jsx-one-expression-per-line": "off",
+
+		"arrow-parens": "off", // несовместимо с prettier
+		"object-curly-newline": "off", // несовместимо с prettier
+		"no-mixed-operators": "off", // несовместимо с prettier
+		"arrow-body-style": "off", 
+		"function-paren-newline": "off", // несовместимо с prettier
+		"space-before-function-paren": 0, // несовместимо с prettier
+
+		"no-console": "off", // airbnb использует warn
+		"no-alert": "error", // airbnb использует warn
+
+		"no-param-reassign": "off", 
+		"radix": "off",
+
+		"react/require-default-props": "off", // airbnb использует error
+		"react/forbid-prop-types": "off", // airbnb использует error
+    "import/order": [
+      2,
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
+        "newlines-between": "always"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    },
+    "react": {
+      "createClass": "createReactClass",                               
+      "pragma": "React",
+      "fragment": "Fragment",
+      "version": "detect",
+      "flowVersion": "0.53"
+    }
+  }
+}

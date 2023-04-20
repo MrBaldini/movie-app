@@ -1,0 +1,15 @@
+.spinner {
+  text-align: center;
+  border-radius: 4px;
+  align-self: center;
+  margin: auto;
+}
+
+.film {
+  display: flex;
+  width: 454px;
+  height: 281px;
+  background-color: #FFFFFF;
+  margin: 15px;
+  box-shadow: 0px 8px 15px rgb(220, 217, 217);
+}
